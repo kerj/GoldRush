@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using System;
 using MySql.Data.MySqlClient;
 
 namespace GoldRush.Models
@@ -16,7 +16,7 @@ namespace GoldRush.Models
       Yaxis = yaxis;
     }
 
-    public BuildBoard()
+    public void BuildBoard()
     {
       int xaxis = 10;
       int yaxis = 10;
@@ -30,9 +30,9 @@ namespace GoldRush.Models
           MySqlCommand cmd = new MySqlCommand(@"INSERT INTO boards (x_axis, y_axis) VALUES (@Xaxis, Yaxis)", conn);
           cmd.Parameters.AddWithValue("@Xaxis", i);
           cmd.Parameters.AddWithValue("@Yaxis", j);
+          Id = (int) cmd.LastInsertedId;
         }
       }
-      Id = (int) cmd.LastInsertedId;
       conn.Close();
       if (conn != null)
       {

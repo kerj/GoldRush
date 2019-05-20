@@ -1,7 +1,7 @@
 using System;
 using MySql.Data.MySqlClient;
-using GoldRush;
 using System.Collections.Generic;
+using GoldRush;
 
 namespace GoldRush.Models
 {
