@@ -21,7 +21,7 @@ namespace GoldRush.Models
       Tnt = tnt;
     }
 
-    public static void BuildBoard()
+    public void BuildBoard()
     {
       int xaxis = 10;
       int yaxis = 10;
@@ -29,6 +29,7 @@ namespace GoldRush.Models
       bool tnt = false;
 
       Board newGame = new Board(xaxis, yaxis, gold, tnt);
+      Random rand = new Random();
       MySqlConnection conn = DB.Connection();
       conn.Open();
       for(int i = 1; i < xaxis+1; i++)
@@ -39,19 +40,28 @@ namespace GoldRush.Models
           cmd.Parameters.AddWithValue("@Xaxis", i);
           cmd.Parameters.AddWithValue("@Yaxis", j);
           cmd.ExecuteNonQuery();
-          int Id = (int) cmd.LastInsertedId;
+          Id = (int) cmd.LastInsertedId;
         }
       }
+      for(int x = 0; x < 5; x++)
+      {
+        xaxis = rand.Next(0, 10);
+        yaxis = rand.Next(0, 10);
+        MySqlCommand command = new MySqlCommand(@"UPDATE boards SET tnt = @true WHERE x_axis = @xaxis AND y_axis = @yaxis;", conn);
 
-      // MySqlCommand command = new MySqlCommand(@"INSERT INTO boards (gold) VALUES (@Gold);", conn);
-      // command.Parameters.AddWithValue("@Gold", this.gold);
+        command.Parameters.AddWithValue("@xaxis", xaxis);
+        command.Parameters.AddWithValue("@yaxis", yaxis);
+        command.Parameters.AddWithValue("@true", true);
+
+        command.ExecuteNonQuery();
+
+      }
 
       conn.Close();
       if (conn != null)
       {
         conn.Dispose();
       }
-
     }
 
     public static List<Board> GetAll()
