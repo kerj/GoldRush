@@ -43,11 +43,53 @@ namespace GoldRush.Models
           Id = (int) cmd.LastInsertedId;
         }
       }
-      for(int x = 0; x < 5; x++)
+      for(int x = 0; x < 8; x++)
       {
-        xaxis = rand.Next(0, 10);
-        yaxis = rand.Next(0, 10);
-        MySqlCommand command = new MySqlCommand(@"UPDATE boards SET tnt = @true WHERE x_axis = @xaxis AND y_axis = @yaxis;", conn);
+        GoldXaxis = rand.Next(0, 10);
+        GoldYaxis = rand.Next(0, 10);
+        TntXaxis = rand.Next(0, 10);
+        TntYaxis = rand.Next(0, 10);
+
+        if (GoldXaxis == TntXaxis && GoldYaxis == TntYaxis)
+        {
+          while(GoldXaxis == TntXaxis && GoldYaxis == TntYaxis)
+          {
+            GoldXaxis = rand.Next(0, 10);
+            GoldYaxis = rand.Next(0, 10);
+          }
+        }
+
+        if (GoldXaxis != TntXaxis && GoldYaxis != TntYaxis)
+        {
+          MySqlCommand command = new MySqlCommand(@"UPDATE boards SET gold = @true WHERE x_axis = @GoldXaxis AND y_axis = @GoldYaxis;", conn);
+        }
+
+        MySqlCommand command = new MySqlCommand(@"UPDATE boards SET tnt = @true WHERE x_axis = @TntXaxis AND y_axis = @TntYaxis;", conn);
+
+        command.Parameters.AddWithValue("@GoldXaxis", GoldXaxis);
+        command.Parameters.AddWithValue("@GoldYaxis", GoldYaxis);
+        command.Parameters.AddWithValue("@TntXaxis", TntXaxis);
+        command.Parameters.AddWithValue("@TntYaxis", TntYaxis);
+        command.Parameters.AddWithValue("@true", true);
+
+        command.ExecuteNonQuery();
+
+      }
+
+
+        int goldCount = 0;
+        while(goldCount <= 6)
+        {
+          xaxis = rand.Next(0, 10);
+          yaxis = rand.Next(0, 10);
+
+          if ()
+          {
+            MySqlCommand command = new MySqlCommand(@"UPDATE boards SET tnt = @true WHERE x_axis = @xaxis AND y_axis = @yaxis;", conn);
+            goldCount++;
+          }
+
+        }
 
         command.Parameters.AddWithValue("@xaxis", xaxis);
         command.Parameters.AddWithValue("@yaxis", yaxis);
@@ -55,7 +97,6 @@ namespace GoldRush.Models
 
         command.ExecuteNonQuery();
 
-      }
 
       conn.Close();
       if (conn != null)
