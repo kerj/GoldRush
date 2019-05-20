@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 namespace GoldRush.Models
@@ -25,7 +25,11 @@ namespace GoldRush.Models
     {
       int xaxis = 10;
       int yaxis = 10;
-      Board newGame = new Board(xaxis, yaxis);
+      bool gold = false;
+      bool tnt = false;
+
+      Board newGame = new Board(xaxis, yaxis, gold, tnt);
+      Random rand = new Random();
       MySqlConnection conn = DB.Connection();
       conn.Open();
       for(int i = 1; i < xaxis+1; i++)
@@ -35,22 +39,32 @@ namespace GoldRush.Models
           MySqlCommand cmd = new MySqlCommand(@"INSERT INTO boards (x_axis, y_axis) VALUES (@Xaxis, Yaxis);", conn);
           cmd.Parameters.AddWithValue("@Xaxis", i);
           cmd.Parameters.AddWithValue("@Yaxis", j);
+          cmd.ExecuteNonQuery();
           Id = (int) cmd.LastInsertedId;
         }
       }
+      for(int x = 0; x < 5; x++)
+      {
+        xaxis = rand.Next(0, 10);
+        yaxis = rand.Next(0, 10);
+        MySqlCommand command = new MySqlCommand(@"UPDATE boards SET tnt = @true WHERE x_axis = @xaxis AND y_axis = @yaxis;", conn);
 
-      MySqlCommand command = new MySqlCommand(@"INSERT INTO boards (gold) VALUES (@Gold);", conn);
-      command.Parameters.AddWithValue("@Gold", this.gold);
+        command.Parameters.AddWithValue("@xaxis", xaxis);
+        command.Parameters.AddWithValue("@yaxis", yaxis);
+        command.Parameters.AddWithValue("@true", true);
 
-      cmd.ExecuteNonQuery();
-      id = (int) cmd.LastInsertedId;
+        command.ExecuteNonQuery();
+
+      }
+
       conn.Close();
       if (conn != null)
       {
         conn.Dispose();
       }
-
     }
+
+
 
     public static List<GameBoard> GetAll()
     {
@@ -64,10 +78,9 @@ namespace GoldRush.Models
         int BoardId = rdr.GetInt32(0);
         int BoardXaxis = rdr.GetInt32(1);
         int BoardYaxis = rdr.GetInt32(2);
-        bool BoardGold = rdr.GetBool(3);
-        bool BoardTnt = rdr.GetBool(4);
+        bool BoardGold = rdr.GetBoolean(3);
+        bool BoardTnt = rdr.GetBoolean(4);
       }
-
       conn.Close();
       if (conn != null)
       {
@@ -75,6 +88,9 @@ namespace GoldRush.Models
       }
       return newGame;
     }
+
+    // MySqlCommand command = new MySqlCommand(@"INSERT INTO boards (gold) VALUES (@Gold)", conn);
+    // command.Parameters.AddWithValue("@Gold", this.gold);
 
   }
   // public class Gold
