@@ -59,7 +59,7 @@ namespace GoldRush
           name: "default",
           template: "{controller=Home}/{action=Index}/{id?}");
           });
-          
+
           app.UseStaticFiles();
 
           app.Run(async (context) =>
@@ -74,4 +74,4 @@ namespace GoldRush
           public static string ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=gold_rush;default command timeout=50;";
         }
       }
-    }
+    
