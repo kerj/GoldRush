@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using System;
 using MySql.Data.MySqlClient;
 
 namespace GoldRush.Models
@@ -35,9 +35,11 @@ namespace GoldRush.Models
           MySqlCommand cmd = new MySqlCommand(@"INSERT INTO boards (x_axis, y_axis) VALUES (@Xaxis, Yaxis);", conn);
           cmd.Parameters.AddWithValue("@Xaxis", i);
           cmd.Parameters.AddWithValue("@Yaxis", j);
+          Id = (int) cmd.LastInsertedId;
         }
       }
-      MySqlCommand command = new MySqlCommand(@"INSERT INTO boards (gold) VALUES (@Gold)", conn);
+
+      MySqlCommand command = new MySqlCommand(@"INSERT INTO boards (gold) VALUES (@Gold);", conn);
       command.Parameters.AddWithValue("@Gold", this.gold);
 
       cmd.ExecuteNonQuery();
@@ -65,6 +67,7 @@ namespace GoldRush.Models
         bool BoardGold = rdr.GetBool(3);
         bool BoardTnt = rdr.GetBool(4);
       }
+
       conn.Close();
       if (conn != null)
       {
