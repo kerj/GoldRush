@@ -21,11 +21,14 @@ namespace GoldRush.Models
       Tnt = tnt;
     }
 
-    public void BuildBoard()
+    public static void BuildBoard()
     {
       int xaxis = 10;
       int yaxis = 10;
-      Board newGame = new Board(xaxis, yaxis);
+      bool gold = false;
+      bool tnt = false;
+
+      Board newGame = new Board(xaxis, yaxis, gold, tnt);
       MySqlConnection conn = DB.Connection();
       conn.Open();
       for(int i = 1; i < xaxis+1; i++)
@@ -35,15 +38,14 @@ namespace GoldRush.Models
           MySqlCommand cmd = new MySqlCommand(@"INSERT INTO boards (x_axis, y_axis) VALUES (@Xaxis, Yaxis);", conn);
           cmd.Parameters.AddWithValue("@Xaxis", i);
           cmd.Parameters.AddWithValue("@Yaxis", j);
-          Id = (int) cmd.LastInsertedId;
+          cmd.ExecuteNonQuery();
+          int Id = (int) cmd.LastInsertedId;
         }
       }
 
-      MySqlCommand command = new MySqlCommand(@"INSERT INTO boards (gold) VALUES (@Gold);", conn);
-      command.Parameters.AddWithValue("@Gold", this.gold);
+      // MySqlCommand command = new MySqlCommand(@"INSERT INTO boards (gold) VALUES (@Gold);", conn);
+      // command.Parameters.AddWithValue("@Gold", this.gold);
 
-      cmd.ExecuteNonQuery();
-      id = (int) cmd.LastInsertedId;
       conn.Close();
       if (conn != null)
       {
@@ -52,9 +54,9 @@ namespace GoldRush.Models
 
     }
 
-    public static List<GameBoard> GetAll()
+    public static List<Board> GetAll()
     {
-      List<GameBoard> newGame = new List<GameBoard> {};
+      List<Board> newGame = new List<Board> {};
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = new MySqlCommand(@"SELECT * FROM board;", conn);
@@ -64,8 +66,8 @@ namespace GoldRush.Models
         int BoardId = rdr.GetInt32(0);
         int BoardXaxis = rdr.GetInt32(1);
         int BoardYaxis = rdr.GetInt32(2);
-        bool BoardGold = rdr.GetBool(3);
-        bool BoardTnt = rdr.GetBool(4);
+        bool BoardGold = rdr.GetBoolean(3);
+        bool BoardTnt = rdr.GetBoolean(4);
       }
 
       conn.Close();

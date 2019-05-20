@@ -11,7 +11,8 @@ namespace GoldRush.Controllers
     [HttpGet("/goldrush")]
     public ActionResult Index()
     {
-      return View("Index");
+      List<Board> newGameBoard = Board.GetAll();
+      return View(newGameBoard);
     }
 
   }
