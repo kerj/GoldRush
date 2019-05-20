@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 20, 2019 at 04:53 PM
+-- Generation Time: May 20, 2019 at 06:58 PM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -54,8 +54,8 @@ CREATE TABLE `boards_golds` (
 
 CREATE TABLE `golds_tnts` (
   `id` int(11) NOT NULL,
-  `unmined_gold` int(11) DEFAULT NULL,
-  `tnt` int(11) DEFAULT NULL
+  `unmined_gold` tinyint(1) DEFAULT NULL,
+  `tnt` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
