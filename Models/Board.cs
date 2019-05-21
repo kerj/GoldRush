@@ -28,6 +28,9 @@ namespace GoldRush.Models
       bool gold = false;
       bool tnt = false;
 
+      Dictionary<int, int> goldPlots = new Dictionary{};
+      Dictionary<int, int> tntPlots = new Dictionary{};
+
       Board newGame = new Board(xaxis, yaxis, gold, tnt);
       Random rand = new Random();
       MySqlConnection conn = DB.Connection();
@@ -50,21 +53,29 @@ namespace GoldRush.Models
         TntXaxis = rand.Next(0, 10);
         TntYaxis = rand.Next(0, 10);
 
-        if (GoldXaxis == TntXaxis && GoldYaxis == TntYaxis)
+        foreach (var item in goldPlots)
         {
-          while(GoldXaxis == TntXaxis && GoldYaxis == TntYaxis)
+          foreach (var bomb in tntPlots)
           {
-            GoldXaxis = rand.Next(0, 10);
-            GoldYaxis = rand.Next(0, 10);
+            while (bomb.TntXaxis == TntXaxis && bomb.TntYaxis == TntYaxis || TntXaxis == item.GoldXaxis && TntYaxis == item.GoldYaxis)
+            {
+              TntXaxis = rand.Next(0, 10);
+              TntYaxis = rand.Next(0, 10);
+            }
+            tntPlots.Add(TntXaxis, TntYaxis);
+          }
+          foreach (var bomb in tntPlots)
+          {
+            while (item.GoldXaxis == GoldXaxis && item.GoldYaxis == GoldYaxis || GoldXaxis == bomb.TntXaxis && GoldYaxis == bomb.TntYaxis)
+            {
+              GoldXaxis = rand.Next(0, 10);
+              GoldYaxis = rand.Next(0, 10);
+            }
+            goldPlots.Add(GoldXaxis, GoldYaxis);
           }
         }
 
-        if (GoldXaxis != TntXaxis && GoldYaxis != TntYaxis)
-        {
-          MySqlCommand command = new MySqlCommand(@"UPDATE boards SET gold = @true WHERE x_axis = @GoldXaxis AND y_axis = @GoldYaxis;", conn);
-        }
-
-        MySqlCommand command = new MySqlCommand(@"UPDATE boards SET tnt = @true WHERE x_axis = @TntXaxis AND y_axis = @TntYaxis;", conn);
+        MySqlCommand command = new MySqlCommand(@"UPDATE boards SET tnt = @true WHERE x_axis = @TntXaxis AND y_axis = @TntYaxis; UPDATE boards SET gold = @true WHERE x_axis = @GoldXaxis AND y_axis = @GoldYaxis;", conn);
 
         command.Parameters.AddWithValue("@GoldXaxis", GoldXaxis);
         command.Parameters.AddWithValue("@GoldYaxis", GoldYaxis);
