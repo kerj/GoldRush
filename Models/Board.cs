@@ -86,29 +86,6 @@ namespace GoldRush.Models
         command.ExecuteNonQuery();
 
       }
-
-
-        int goldCount = 0;
-        while(goldCount <= 6)
-        {
-          xaxis = rand.Next(0, 10);
-          yaxis = rand.Next(0, 10);
-
-          if ()
-          {
-            MySqlCommand command = new MySqlCommand(@"UPDATE boards SET tnt = @true WHERE x_axis = @xaxis AND y_axis = @yaxis;", conn);
-            goldCount++;
-          }
-
-        }
-
-        command.Parameters.AddWithValue("@xaxis", xaxis);
-        command.Parameters.AddWithValue("@yaxis", yaxis);
-        command.Parameters.AddWithValue("@true", true);
-
-        command.ExecuteNonQuery();
-
-
       conn.Close();
       if (conn != null)
       {
@@ -140,7 +117,7 @@ namespace GoldRush.Models
       return newGame;
     }
 
-    public static CheckForTnt(int boardId)
+    public static Board CheckForTnt(int boardId)
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
@@ -164,7 +141,7 @@ namespace GoldRush.Models
     }
 
 
-  public static CheckForGold(int boardId)
+  public static Board CheckForGold(int boardId)
   {
     MySqlConnection conn = DB.Connection();
     conn.Open();
