@@ -11,7 +11,7 @@ namespace GoldRush.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
-      Board.BuildBoard();
+      // Board.BuildBoard();
       return View();
     }
 

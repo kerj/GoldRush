@@ -6,23 +6,23 @@
   <meta charset='utf-8'>
   <link rel="stylesheet" href="~/css/styles.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <title>Stuff!</title>
+  <title>Gold Rush</title>
 </head>
 <body>
   <div class="container">
-    <table class="game-board">
-      @for (var i = 0; i < 10; i++)
-      {
-        <tr></tr>
-        <td>@for (var j = 0; j < 100; j++)
-        {
-          @if (j % 10 == 0 || j == 0)
-          {
-          <button>:)</button>
-          }
-        }</td>
-      }
-    </table>
+
+    @foreach (var game in Model)
+    {
+      /* <form action="/games/@game.Id" method="post">
+      <button type="button" name="button" class="btn btn-light">@game.Id</button>
+      </form>
+      <tr>
+      <th>fart</th>
+      <th>poop</th>
+      <th>butt</th>
+      </tr> */
+    }
+
   </div>
 </body>
 </html>
