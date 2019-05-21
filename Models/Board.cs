@@ -137,7 +137,7 @@ namespace GoldRush.Models
       {
         conn.Dispose();
       }
-      return checkForTnt;
+      return checkForTnt.BoardTnt;
     }
 
 
@@ -161,7 +161,24 @@ namespace GoldRush.Models
     {
       conn.Dispose();
     }
-    return checkForGold;
+    return checkForGold.BoardGold;
+  }
+
+  public static void Counter(bool count)
+  {
+    MySqlConnection conn = DB.Connection();
+    conn.Open();
+    MySqlCommand cmd = new MySqlCommand(@"SELECT players.player_gold FROM boards JOIN players_boards ON (boards.id = players_boards.board_id) JOIN players ON (players_boards.player_id = players.id);", conn);
+
+    if (count == true)
+    {
+      playerGold++;
+      gold--;
+    }
+    else()
+    {
+      playerTurn--;
+    }
   }
 
 }

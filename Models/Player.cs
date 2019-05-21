@@ -13,7 +13,7 @@ namespace GoldRush.Models
 
     //player, getter/setter .. name
 
-    public PLayer( string name, int playerGold, int id = 0)
+    public Player( string name, int playerGold = 0, int id = 0)
     {
       Id = id;
       Name = name;
