@@ -28,6 +28,9 @@ namespace GoldRush.Models
       bool gold = false;
       bool tnt = false;
 
+      Dictionary<int, int> goldPlots = new Dictionary{};
+      Dictionary<int, int> tntPlots = new Dictionary{};
+
       Board newGame = new Board(xaxis, yaxis, gold, tnt);
       Random rand = new Random();
       MySqlConnection conn = DB.Connection();
@@ -43,11 +46,61 @@ namespace GoldRush.Models
           Id = (int) cmd.LastInsertedId;
         }
       }
-      for(int x = 0; x < 5; x++)
+      for(int x = 0; x < 8; x++)
       {
-        xaxis = rand.Next(0, 10);
-        yaxis = rand.Next(0, 10);
-        MySqlCommand command = new MySqlCommand(@"UPDATE boards SET tnt = @true WHERE x_axis = @xaxis AND y_axis = @yaxis;", conn);
+        GoldXaxis = rand.Next(0, 10);
+        GoldYaxis = rand.Next(0, 10);
+        TntXaxis = rand.Next(0, 10);
+        TntYaxis = rand.Next(0, 10);
+
+        foreach (var item in goldPlots)
+        {
+          foreach (var bomb in tntPlots)
+          {
+            while (bomb.TntXaxis == TntXaxis && bomb.TntYaxis == TntYaxis || TntXaxis == item.GoldXaxis && TntYaxis == item.GoldYaxis)
+            {
+              TntXaxis = rand.Next(0, 10);
+              TntYaxis = rand.Next(0, 10);
+            }
+            tntPlots.Add(TntXaxis, TntYaxis);
+          }
+          foreach (var bomb in tntPlots)
+          {
+            while (item.GoldXaxis == GoldXaxis && item.GoldYaxis == GoldYaxis || GoldXaxis == bomb.TntXaxis && GoldYaxis == bomb.TntYaxis)
+            {
+              GoldXaxis = rand.Next(0, 10);
+              GoldYaxis = rand.Next(0, 10);
+            }
+            goldPlots.Add(GoldXaxis, GoldYaxis);
+          }
+        }
+
+        MySqlCommand command = new MySqlCommand(@"UPDATE boards SET tnt = @true WHERE x_axis = @TntXaxis AND y_axis = @TntYaxis; UPDATE boards SET gold = @true WHERE x_axis = @GoldXaxis AND y_axis = @GoldYaxis;", conn);
+
+        command.Parameters.AddWithValue("@GoldXaxis", GoldXaxis);
+        command.Parameters.AddWithValue("@GoldYaxis", GoldYaxis);
+        command.Parameters.AddWithValue("@TntXaxis", TntXaxis);
+        command.Parameters.AddWithValue("@TntYaxis", TntYaxis);
+        command.Parameters.AddWithValue("@true", true);
+
+        command.ExecuteNonQuery();
+
+      }
+
+
+        int goldCount = 0;
+        while(goldCount <= 6)
+        {
+          xaxis = rand.Next(0, 10);
+          yaxis = rand.Next(0, 10);
+
+          if ()
+          {
+            MySqlCommand command = new MySqlCommand(@"UPDATE boards SET tnt = @true WHERE x_axis = @xaxis AND y_axis = @yaxis;", conn);
+            goldCount++;
+          }
+
+        }
 
         command.Parameters.AddWithValue("@xaxis", xaxis);
         command.Parameters.AddWithValue("@yaxis", yaxis);
@@ -55,7 +108,6 @@ namespace GoldRush.Models
 
         command.ExecuteNonQuery();
 
-      }
 
       conn.Close();
       if (conn != null)
