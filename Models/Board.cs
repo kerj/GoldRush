@@ -122,7 +122,7 @@ namespace GoldRush.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = new MySqlCommand(@"SELECT * FROM board;", conn);
-      MySqlDataReader rdr = cmd. ExecuteReader() as MySqlDataReader;
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
       while(rdr.Read())
       {
         int BoardId = rdr.GetInt32(0);
@@ -140,7 +140,54 @@ namespace GoldRush.Models
       return newGame;
     }
 
+    public static CheckForTnt(int boardId)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = new MySqlCommand(@"SELECT tnt FROM boards WHERE id = @boardId;", conn);
+      cmd.Parameters.AddWithValue("@boardId", boardId)
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      rdr.Read()
+      int BoardId = rdr.GetInt32(0);
+      int BoardXaxis = rdr.GetInt32(1);
+      int BoardYaxis = rdr.GetInt32(2);
+      bool BoardGold = rdr.GetBoolean(3);
+      bool BoardTnt = rdr.GetBoolean(4);
+      Board checkForTnt = new Board(BoardXaxis, BoardYaxis, BoardGold, BoardTnt, BoardId);
+
+      conn.Close()
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return checkForTnt;
+    }
+
+
+  public static CheckForGold(int boardId)
+  {
+    MySqlConnection conn = DB.Connection();
+    conn.Open();
+    MySqlCommand cmd = new MySqlCommand(@"SELECT gold FROM boards WHERE id = @boardId;", conn);
+    cmd.Parameters.AddWithValue("@boardId", boardId)
+    MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+    rdr.Read()
+    int BoardId = rdr.GetInt32(0);
+    int BoardXaxis = rdr.GetInt32(1);
+    int BoardYaxis = rdr.GetInt32(2);
+    bool BoardGold = rdr.GetBoolean(3);
+    bool BoardTnt = rdr.GetBoolean(4);
+    Board checkForGold = new Board(BoardXaxis, BoardYaxis, BoardGold, BoardTnt, BoardId);
+
+    conn.Close()
+    if (conn != null)
+    {
+      conn.Dispose();
+    }
+    return checkForGold;
   }
+
+}
   // public class Gold
   // {
   //   public int Id { get; set; }
