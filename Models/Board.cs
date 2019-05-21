@@ -170,6 +170,8 @@ namespace GoldRush.Models
     conn.Open();
     MySqlCommand cmd = new MySqlCommand(@"SELECT players.player_gold FROM boards JOIN players_boards ON (boards.id = players_boards.board_id) JOIN players ON (players_boards.player_id = players.id);", conn);
 
+  
+
     if (count == true)
     {
       playerGold++;
@@ -178,6 +180,12 @@ namespace GoldRush.Models
     else()
     {
       playerTurn--;
+    }
+
+    conn.Close();
+    if(conn != null)
+    {
+      conn.Dispose();
     }
   }
 
