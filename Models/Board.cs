@@ -122,9 +122,9 @@ namespace GoldRush.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = new MySqlCommand(@"SELECT tnt FROM boards WHERE id = @boardId;", conn);
-      cmd.Parameters.AddWithValue("@boardId", boardId)
+      cmd.Parameters.AddWithValue("@boardId", boardId);
       MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
-      rdr.Read()
+      rdr.Read();
       int BoardId = rdr.GetInt32(0);
       int BoardXaxis = rdr.GetInt32(1);
       int BoardYaxis = rdr.GetInt32(2);
@@ -132,7 +132,7 @@ namespace GoldRush.Models
       bool BoardTnt = rdr.GetBoolean(4);
       Board checkForTnt = new Board(BoardXaxis, BoardYaxis, BoardGold, BoardTnt, BoardId);
 
-      conn.Close()
+      conn.Close();
       if (conn != null)
       {
         conn.Dispose();
@@ -146,9 +146,9 @@ namespace GoldRush.Models
     MySqlConnection conn = DB.Connection();
     conn.Open();
     MySqlCommand cmd = new MySqlCommand(@"SELECT gold FROM boards WHERE id = @boardId;", conn);
-    cmd.Parameters.AddWithValue("@boardId", boardId)
+    cmd.Parameters.AddWithValue("@boardId", boardId);
     MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
-    rdr.Read()
+    rdr.Read();
     int BoardId = rdr.GetInt32(0);
     int BoardXaxis = rdr.GetInt32(1);
     int BoardYaxis = rdr.GetInt32(2);
@@ -156,7 +156,7 @@ namespace GoldRush.Models
     bool BoardTnt = rdr.GetBoolean(4);
     Board checkForGold = new Board(BoardXaxis, BoardYaxis, BoardGold, BoardTnt, BoardId);
 
-    conn.Close()
+    conn.Close();
     if (conn != null)
     {
       conn.Dispose();
@@ -166,6 +166,10 @@ namespace GoldRush.Models
 
   public static void Counter(bool count)
   {
+    int playerGold = 0;
+    int unminedGold = 8;
+    int playerTurn = 20;
+
     MySqlConnection conn = DB.Connection();
     conn.Open();
     MySqlCommand cmd = new MySqlCommand(@"SELECT players.player_gold FROM boards JOIN players_boards ON (boards.id = players_boards.board_id) JOIN players ON (players_boards.player_id = players.id);", conn);
@@ -177,13 +181,14 @@ namespace GoldRush.Models
       int BoardId = rdr.GetInt32(2);
     }
 
-
     if (count == true)
     {
+      MySqlCommand command = new MySqlCommand(@"UPDATE players SET player_gold = @playerGold WHERE id = players.id;", conn);
+      command.Parameters.AddWithValue("@playerGold", playerGold);
       playerGold++;
-      gold--;
+      unminedGold--;
     }
-    else()
+    else
     {
       playerTurn--;
     }
