@@ -169,8 +169,14 @@ namespace GoldRush.Models
     MySqlConnection conn = DB.Connection();
     conn.Open();
     MySqlCommand cmd = new MySqlCommand(@"SELECT players.player_gold FROM boards JOIN players_boards ON (boards.id = players_boards.board_id) JOIN players ON (players_boards.player_id = players.id);", conn);
+    MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+    while(rdr.Read());
+    {
+      int PlayerBoardId = rdr.GetInt32(0);
+      int PlayerId = rdr.GetInt32(1);
+      int BoardId = rdr.GetInt32(2);
+    }
 
-  
 
     if (count == true)
     {
