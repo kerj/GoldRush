@@ -8,12 +8,12 @@ namespace GoldRush.Controllers
   public class GameController : Controller
   {
 
-    // [HttpGet("/game")]
-    // public ActionResult Index()
-    // {
-    //   Board newBoard = new Board();
-    //   return View(newBoard);
-    // }
+    [HttpGet("/game")]
+    public ActionResult Index()
+    {
+      List<Square> newSquareList = Square.TypeOfSquare();
+      return View(newSquareList);
+    }
 
   }
 }

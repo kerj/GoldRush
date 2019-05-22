@@ -12,7 +12,6 @@ namespace GoldRush.Controllers
     public ActionResult Index()
     {
       List<Square> newSquareList = Square.TypeOfSquare();
-
       return View(newSquareList);
     }
 
