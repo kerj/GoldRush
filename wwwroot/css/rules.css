@@ -18,7 +18,14 @@ button {
   display: block;
 }
 
+button:hover {
+  background-color: #FCFFB2;
+  border: solid #773B02;
+  color: #773B02;
+}
+
 #rules {
+  padding: 10px;
   margin-top: 30vh;
   background-color: rgb(215,133,0, 0.8);
   color: #FCFFB2;
