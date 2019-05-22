@@ -8,18 +8,43 @@ namespace GoldRush.Controllers
   public class GameController : Controller
   {
 
-    [HttpPost("/game/name/new")]
+    [HttpPost("/game/player")]
     public ActionResult Rules(string name)
     {
-      Board newSquareList = new Board();
-      return View(Board.newSquares);
+      Player player = new Player(name);
+      return View(player);
     }
 
-    [HttpGet("/game")]
+    [HttpGet("/game/start")]
     public ActionResult Index()
     {
+      List<Square> newSquares = Square.TypeOfSquare();
       Board newSquareList = new Board();
-      return View(Board.newSquares);
+      return View(newSquares);
+    }
+
+    [HttpGet("/game/lostgamemoves")]
+    public ActionResult lostgamemoves()
+    {
+    return View();
+    }
+
+    [HttpGet("/game/wongame")]
+    public ActionResult wongame()
+    {
+    return View();
+    }
+
+    [HttpGet("/game/new")]
+    public ActionResult New()
+    {
+    return RedirectToAction("Index", "Home");
+    }
+
+    [HttpGet("/lose")]
+    public ActionResult LostGameTnt()
+    {
+    return View();
     }
 
   }

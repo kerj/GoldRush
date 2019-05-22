@@ -6,7 +6,7 @@ namespace GoldRush.Models
 {
   public class Board
   {
-    public static List<Square> newSquares = Square.TypeOfSquare();
+    // public static List<Square> newSquares = Square.TypeOfSquare();
     // public List<Player> newPlayers = Player.GetAll();
     public bool TntCheck { get; set; }
     public Board()
@@ -14,16 +14,16 @@ namespace GoldRush.Models
       TntCheck = false;
     }
 
-    public static int CheckSquare(int squareType, int id, int goldCount)
-    {
-      int goldCounter = 0;
-
-      if (newSquares[id].SquareType == 10)
-      {
-        goldCounter++;
-      }
-      return goldCounter;
-    }
+    // public static int CheckSquare(int squareType, int id, int goldCount)
+    // {
+    //   int goldCounter = 0;
+    //
+    //   if (newSquares[id].SquareType == 10)
+    //   {
+    //     goldCounter++;
+    //   }
+    //   return goldCounter;
+    // }
 
 
 
