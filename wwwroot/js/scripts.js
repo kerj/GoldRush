@@ -5,9 +5,11 @@ function disable(i){
   });
 
 }
+var totalGold = $("#goldie").val();
 var turnCounter = 1;
 var goldCounter = 0;
 $(document).ready(function() {
+  console.log(totalGold);
   $("button").on('click', function(){
     var buttonValue = $(this).val();
     //stores the button squaretype
@@ -19,6 +21,7 @@ $(document).ready(function() {
         alert("YOU STRUCK GOLD!!!")
         turnCounter--;
         goldCounter++;
+        totalGold--;
       }else if(buttonValue == -1){
         alert("YOU BLEW UP!!!")
       }
@@ -27,6 +30,8 @@ $(document).ready(function() {
 
 
       $("#goldCounter").html("<h1> Players Gold: " + goldCounter + "</h1>");
+
+      $("#goldie").html("<li>" + totalGold + "<li>");
 
     turnCounter++
     disable(0);
