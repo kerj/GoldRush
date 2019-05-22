@@ -1,7 +1,6 @@
 function disable(i){
   $("button#"+i).on('click', function() {
     $(this).prop("disabled",true);
-
   });
 
 }
@@ -37,8 +36,4 @@ $(document).ready(function() {
     //disables the button
 
   })
-
-
-
-
 })
