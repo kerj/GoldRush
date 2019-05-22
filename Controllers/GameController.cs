@@ -15,12 +15,12 @@ namespace GoldRush.Controllers
       return View(Board.newSquares);
     }
 
-    // [HttpGet("/game")]
-    // public ActionResult Index()
-    // {
-    //   List<Square> newSquareList = Square.TypeOfSquare();
-    //   return View(newSquareList);
-    // }
+    [HttpGet("/game")]
+    public ActionResult Index()
+    {
+      Board newSquareList = new Board();
+      return View(Board.newSquares);
+    }
 
   }
 }

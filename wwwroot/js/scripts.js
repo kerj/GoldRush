@@ -8,6 +8,7 @@ function disable(i){
 var turnCounter = 1;
 var goldCounter = 0;
 $(document).ready(function() {
+  var totalGold = $("#goldie").val();
   $("button").on('click', function(){
     var buttonValue = $(this).val();
     //stores the button squaretype
@@ -19,10 +20,13 @@ $(document).ready(function() {
         alert("YOU STRUCK GOLD!!!")
         turnCounter--;
         goldCounter++;
+        totalGold--;
       }else if(buttonValue == -1){
         alert("YOU BLEW UP!!!")
       }
     }
+      $("#goldies").html("<h1> Number of Gold: " + totalGold + "</h1>");
+
       $("#turnCounter").html("<h1> Turn: " + turnCounter + "</h1>");
 
 

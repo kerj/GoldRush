@@ -8,12 +8,12 @@ namespace GoldRush.Controllers
   public class BoardController : Controller
   {
 
-  [HttpGet("/board")]
-  public ActionResult Board()
-  {
-    List<Square> board = Square.TypeOfSquare();
-    return View(board);
-  }
+  // [HttpGet("/board")]
+  // public ActionResult Board()
+  // {
+  //   List<Square> board = Square.TypeOfSquare();
+  //   return View(board);
+  // }
 
 
 
