@@ -12,8 +12,7 @@ namespace GoldRush.Controllers
     public ActionResult Rules(string name)
     {
       Player player = new Player(name);
-      List<Player> player1 = player;
-      return View(allPlayers);
+      return View(player);
     }
 
 
