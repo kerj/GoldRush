@@ -12,11 +12,10 @@ namespace GoldRush.Controllers
     public ActionResult Rules(string name)
     {
       Player player = new Player(name);
-      List<Player> player1 = player;
-      return View(allPlayers);
+      player.Save();
+      List<Player> player1 = Player.GetAll();
+      return View(player1);
     }
-
-
 
     // [HttpGet("/game")]
     // public ActionResult Index()

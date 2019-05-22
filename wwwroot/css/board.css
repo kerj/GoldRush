@@ -1,14 +1,26 @@
-button {
-  color: #ccffff;
-  border: groove;
-  width: 45px;
-  height: 45px;
+body {
+  background: url("../img/gold-glitter.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 button:hover {
-  background-color: cyan;
-  color: #ff6600;
+  background-color: aqua;
+  color: #ccffff;
   border: solid;
+}
+
+button {
+  color: #ccffff;
+  border: groove #ccffff;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+}
+
+.game-board {
+  margin-top: 10vh;
+  margin: 0 auto;
 }
 
 button:first-of-type {
@@ -49,8 +61,4 @@ button:nth-child(9){
 
 button:nth-child(10){
   background-color: #cc0099;
-}
-
-tr {
-  background-color: #99ccff;
 }
