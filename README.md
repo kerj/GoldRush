@@ -19,11 +19,7 @@ CREATE TABLE prospectors (id serial PRIMARY KEY, phrases VARCHAR(255), win tinyi
 ## Specs
 |Behavior|Input|Output|
 |-|-|-|
-|Create 10x10 grid|for(int i = 0; i < 10; i++)
-{
-  for(int j = 0; j < 10; j++)
-  {}
-  }|Makes a 10x10 grid|
+|Create 10x10 grid|for(int i = 0; i < 10; i++){for(int j = 0; j < 10; j++){}}|Makes a 10x10 grid|
 |Give gold a value on the grid|if(squareType == 10)|goldCount++|
 |Give tnt a value on the grid|if(squareType == -1)|tntCount++|
 |Click on a tnt button will redirect to LostGameTnt.cshtml|Click on tnt|Redirect to Tnt LostGameTnt page|
