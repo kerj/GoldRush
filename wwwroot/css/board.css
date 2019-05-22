@@ -1,0 +1,56 @@
+button {
+  color: #ccffff;
+  border: groove;
+  width: 45px;
+  height: 45px;
+}
+
+button:hover {
+  background-color: cyan;
+  color: #ff6600;
+  border: solid;
+}
+
+button:first-of-type {
+  background-color: #ff0000;
+}
+
+button:nth-child(2){
+  background-color: #ff6600;
+}
+
+button:nth-child(3){
+  background-color: #ff9966;
+}
+
+button:nth-child(4){
+  background-color: #ffff00;
+}
+
+button:nth-child(5){
+  background-color: #66ff33;
+}
+
+button:nth-child(6){
+  background-color: #00cc00;
+}
+
+button:nth-child(7){
+  background-color: #0066ff;
+}
+
+button:nth-child(8){
+  background-color: #3333cc;
+}
+
+button:nth-child(9){
+  background-color: #6600cc;
+}
+
+button:nth-child(10){
+  background-color: #cc0099;
+}
+
+tr {
+  background-color: #99ccff;
+}
