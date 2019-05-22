@@ -13,7 +13,7 @@ namespace GoldRush.Controllers
     {
       List<Square> newSquareList = Square.TypeOfSquare();
 
-      return View(newSquareList[1].SquareType);
+      return View(newSquareList);
     }
 
   }

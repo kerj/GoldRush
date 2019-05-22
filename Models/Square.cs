@@ -35,20 +35,24 @@ namespace GoldRush.Models
       {
         for(int j = 0; j < 10; j++)
         {
+          int squareType = rnd.Next(-1,11);
           if(goldCount > 8)
           {
-            rnd.Next(1,2);
+            squareType = rnd.Next(1,3);
           }
           if(tntCount > 8)
           {
-            rnd.Next(0,1);
+            squareType = rnd.Next(0,3);
+            if(goldCount == 8 && squareType == 10)
+            {
+              squareType++;
+            }
           }
-          int squareType = rnd.Next(0,2);
-          if (squareType == 0)
+          if (squareType == 10)
           {
             goldCount++;
           }
-          if(squareType == 2)
+          if(squareType == -1)
           {
             tntCount++;
           }
