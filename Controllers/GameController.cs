@@ -15,6 +15,26 @@ namespace GoldRush.Controllers
       return View(player);
     }
 
+    [HttpGet("/lose")]
+    public ActionResult LostGameMoves(string name)
+    {
+
+      return View();
+    }
+
+    [HttpGet("/lose/tnt")]
+    public ActionResult LostGameTnt(string name)
+    {
+
+      return View();
+    }
+    [HttpGet("/won")]
+    public ActionResult WonGame(string name)
+    {
+
+      return View();
+    }
+
     // [HttpGet("/game")]
     // public ActionResult Index()
     // {
