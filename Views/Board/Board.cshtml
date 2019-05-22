@@ -1,22 +1,28 @@
+@using GoldRush.Models;
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset='utf-8'>
   @* <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> *@
   <link rel="stylesheet" href="~/css/styles.css">
-  <link rel="stylesheet" href="~/css/splash.css">
+  <link rel="stylesheet" href="~/css/board.css">
   <title>Gold Rush</title>
 </head>
 <body>
-  <div class="text-center" id="enter-name">
-    <h1 class="display-4">Gold Rush</h1>
-    <form action="/game/name/new" method="post">
-      <label for="name">Enter Name</label>
-      <br>
-      <input id="name" name="name" type="text">
-      <br>
-      <button type="submit">Dig for Gold!</button>
-    </form>
-  </div>
+  <table class="game-board">
+    <h1>@Model.Count</h1>
+    @for (var i = 0; i < 10; i++)
+    {
+      <tr></tr>
+      <td>@for (var j = 0; j < @Model.Count; j++)
+      {
+        @if (j % 10 == 0 || j == 0)
+        {
+        <button value="@Model[i+j].Id"></button>
+        }
+      }</td>
+    }
+  </table>
 </body>
 </html>
