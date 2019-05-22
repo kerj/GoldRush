@@ -8,15 +8,12 @@ namespace GoldRush.Controllers
   public class GameController : Controller
   {
 
-    [HttpGet("/game")]
-    public ActionResult Index()
-    {
-      Game newGame = new Game();
-      List<Board> newBoard = Board.GetAll();
-      List<Player> newPlayer = Player.GetAll();
-      List<Prospector> theProspector = Prospector.GetAll();
-      return View(newGame);
-    }
+    // [HttpGet("/game")]
+    // public ActionResult Index()
+    // {
+    //   Board newBoard = new Board();
+    //   return View(newBoard);
+    // }
 
   }
 }

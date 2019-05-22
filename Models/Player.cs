@@ -32,7 +32,7 @@ namespace GoldRush.Models
       rdr.Read();
       int id = rdr.GetInt32(0);
       string name = rdr.GetString(1);
-      int playerGold = rdr.GetString(2);
+      int playerGold = rdr.GetInt32(2);
       Player foundPlayer = new Player(name, playerGold, id);
       conn.Close();
       return foundPlayer;
@@ -51,7 +51,7 @@ namespace GoldRush.Models
 
         int id = rdr.GetInt32(0);
         string playerName = rdr.GetString(1);
-        int playerGold = rdr.GetString(2);
+        int playerGold = rdr.GetInt32(2);
         Player newPlayer = new Player(playerName, playerGold, id);
         allPlayers.Add(newPlayer);
       }
