@@ -6,10 +6,12 @@
   <meta charset='utf-8'>
   <link rel="stylesheet" href="~/css/styles.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="~/css/styles.css">
+  <link rel="stylesheet" href="~/css/rules.css">
   <title>Rules</title>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="rules">
     <h1>Gold Rush</h1>
     <p>
       Hello, Prospector @Model.Name! You have decided to leave your home in the midwest to resurrect the 1849 Gold Rush, 170 years later. Your friends think you have lost it! You are determined to prove them wrong. You head out to California to seek your fortune. You must find the plots of gold amongst the Silicon Valley tech buildings. You must be careful to avoid blowing up buildings with your prospecting TNT. The Bureau of Land Management must be placated as well. Your plan to unearth unimagined riches is as follows:
@@ -20,10 +22,8 @@
         <li>Collect gold!!</li>
       </ul>
     </p>
-
-
     <form action="/board" method="get">
-      <button type="submit" name="button" class="btn btn-dark">Gold or Bust</button>
+      <button type="submit" name="button">Gold or Bust</button>
     </form>
   </div>
 </body>

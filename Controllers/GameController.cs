@@ -15,8 +15,6 @@ namespace GoldRush.Controllers
       return View(player);
     }
 
-
-
     // [HttpGet("/game")]
     // public ActionResult Index()
     // {
