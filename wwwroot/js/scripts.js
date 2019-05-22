@@ -9,6 +9,7 @@ var turnCounter = 1;
 var goldCounter = 0;
 $(document).ready(function() {
   var totalGold = $("#goldie").val();
+  var initialGold = $("#goldie").val();
   $("button").on('click', function(){
     var buttonValue = $(this).val();
     //stores the button squaretype
@@ -32,13 +33,15 @@ $(document).ready(function() {
 
       $("#goldCounter").html("<h1> Players Gold: " + goldCounter + "</h1>");
 
+      if(goldCounter == initialGold) {
+        window.location.replace("/game/wongame");
+      }
+      if(turnCounter == 5) {
+        window.location.replace("/game/lostgamemoves");
+      }
+
     turnCounter++
     disable(0);
     //disables the button
-
   })
-
-
-
-
 })
