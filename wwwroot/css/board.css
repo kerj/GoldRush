@@ -8,6 +8,29 @@ body {
   background-size: cover;
 }
 
+a {
+  position: relative;
+  margin-right: 80%;
+  margin-left: -55%;
+  margin-bottom: 10%;
+}
+
+a:after{
+    content:"";
+    padding: 50%;
+    position: absolute;
+    left: -10%;
+    top: -25%;
+    margin-right: 50%;
+}
+
+h1 {
+  text-align: center;
+  background-color: #946C2B;
+  width: 50vw;
+  margin: 0 auto;
+}
+
 button {
   color: #ccffff;
   border: groove aqua;
