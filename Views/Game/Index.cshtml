@@ -7,6 +7,11 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="~/css/styles.css">
   <link rel="stylesheet" href="~/css/board.css">
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script src="~/js/scripts.js"></script>
   <title>Stuff!</title>
 </head>
 <body>
@@ -19,10 +24,21 @@
       {
         @if (j % 10 == 0 || j == 0)
         {
-        <button value="@Model[i+j].Id" >@Model[i+j].Id</button>
+          @if(@Model[i+j].SquareType == -1)
+          {
+            <button id="@Model[i+j].Id" onclick="disable(@Model[i+j].Id)" value="@Model[i+j].SquareType"><a href="/lose">@Model[i+j].Id</a></button>
+          }
+          @if(@Model[i+j].SquareType != -1)
+          {
+            <button id="@Model[i+j].Id" onclick="disable(@Model[i+j].Id)" value="@Model[i+j].SquareType">@Model[i+j].Id</button>
+          }
         }
       }</td>
     }
   </table>
+  <h1 id="turnCounter">Turn: </h1>
+  <h1 id="goldCounter">Players Gold: </h1>
+  <h1>Number of Tnt: @Model[99].TntCount</h1>
+  <h1>Number of Gold: @Model[99].GoldCount</h1>
 </body>
 </html>
