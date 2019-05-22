@@ -41,3 +41,8 @@ button {
   background-color: #DDB446;
   border: solid #A26601;
 }
+
+button:hover {
+  background-color: #A26601;
+  border: solid #DDB446;
+}

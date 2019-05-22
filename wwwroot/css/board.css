@@ -1,21 +1,25 @@
+* {
+  color: #FFFBB6;
+}
+
 body {
   background: url("../img/gold-glitter.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-button:hover {
-  background-color: aqua;
-  color: #ccffff;
-  border: solid;
-}
-
 button {
   color: #ccffff;
-  border: groove #ccffff;
+  border: groove aqua;
   width: 45px;
   height: 45px;
   font-size: 20px;
+}
+
+button:hover {
+  background-color: aqua;
+  color: aqua;
+  border: solid;
 }
 
 .game-board {
