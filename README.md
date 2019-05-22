@@ -24,7 +24,7 @@ CREATE TABLE prospectors (id serial PRIMARY KEY, phrases VARCHAR(255), win tinyi
 |Give tnt a value on the grid|if(squareType == -1)|tntCount++|
 |Click on a tnt button will redirect to LostGameTnt.cshtml|Click on tnt|Redirect to Tnt LostGameTnt page|
 |Turn counter = 5 will redirect to LostGameMoves.cshtml|Click 5 times| Redirect to LostGameMoves page|
-|If all gold has been collected Redirect to WonGame.cshtml|collect All Gold|Redirect to WonGame page|
+|If all gold has been collected Redirect to WonGame.cshtml|Collect All Gold|Redirect to WonGame page|
 
 
 
