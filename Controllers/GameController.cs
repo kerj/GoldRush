@@ -11,8 +11,8 @@ namespace GoldRush.Controllers
     [HttpPost("/game/name/new")]
     public ActionResult Rules(string name)
     {
-      Player player = new Player(name);
-      return View(player);
+      Board newSquareList = new Board();
+      return View(Board.newSquares);
     }
 
     // [HttpGet("/game")]

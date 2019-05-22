@@ -6,20 +6,30 @@ namespace GoldRush.Models
 {
   public class Board
   {
-    public int Id { get; set; }
-    public int Gold { get; set; }
-    public int Tnt { get; set; }
-
-    public Board( int id, int gold, int tnt)
+    public static List<Square> newSquares = Square.TypeOfSquare();
+    // public List<Player> newPlayers = Player.GetAll();
+    public bool TntCheck { get; set; }
+    public Board()
     {
-      Id = id;
-      Gold = gold;
-      Tnt = tnt;
+      TntCheck = false;
     }
+
+    public static int CheckSquare(int squareType, int id, int goldCount)
+    {
+      int goldCounter = 0;
+
+      if (newSquares[id].SquareType == 10)
+      {
+        goldCounter++;
+      }
+      return goldCounter;
+    }
+
+
 
     // public Board BuildBoard()
     // {
-      // Board newGame = new Board(xaxis, yaxis, gold, tnt);
+    //   Board newGame = new Board(xaxis, yaxis, gold, tnt);
     //   int goldCount = 0;
     //   int tntCount = 0;
     //   Random rand = new Random();

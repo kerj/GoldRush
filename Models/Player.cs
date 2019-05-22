@@ -9,6 +9,7 @@ namespace GoldRush.Models
     public int Id { get; set; }
     public string Name { get; set; }
     public int PlayerGold { get; set; }
+    public bool TntCheck { get; set; }
 
 
     //player, getter/setter .. name

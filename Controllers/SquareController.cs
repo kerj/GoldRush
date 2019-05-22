@@ -11,8 +11,8 @@ namespace GoldRush.Controllers
     [HttpGet("/square")]
     public ActionResult Index()
     {
-      List<Square> newSquareList = Square.TypeOfSquare();
-      return View(newSquareList);
+      Board newSquareList = new Board();
+      return View(Board.newSquares);
     }
 
   }
