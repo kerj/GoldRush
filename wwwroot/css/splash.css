@@ -1,3 +1,43 @@
+body {
+  background: url("../img/gold-stones.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 70vw 30vw;
+  grid-template-rows: 50vw 50vw;
+}
+
 #name {
-  margin-bottom: 10px;
+  margin: 10px;
+  width: 200px;
+  height: 50px;
+  align-content: center;
+  background-color: #FDFED8;
+  border: solid #844503;
+}
+
+#enter-name {
+  text-align: center;
+  font-size: 50px;
+  color: #E5BC5D;
+  width: 50vw;
+  height: 50vw;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+h1 {
+  font-size: 100px;
+}
+
+button {
+  font: serif;
+  margin: 10px;
+  width: 200px;
+  height: 100px;
+  font-size: 30px;
+  background-color: #DDB446;
+  border: solid #A26601;
 }

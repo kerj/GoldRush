@@ -8,7 +8,7 @@ namespace GoldRush.Controllers
   public class GameController : Controller
   {
 
-    [HttpGet("/game")]
+    [HttpGet("/board")]
     public ActionResult Index()
     {
       List<Square> newSquareList = Square.TypeOfSquare();
