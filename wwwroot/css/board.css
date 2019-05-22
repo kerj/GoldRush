@@ -26,8 +26,8 @@ a:after{
 
 h1 {
   text-align: center;
-  background-color: #946C2B;
-  width: 50vw;
+  background-color: rgb(171,122,28, 0.8);
+  width: 450px;
   margin: 0 auto;
 }
 
@@ -39,13 +39,9 @@ button {
   font-size: 20px;
 }
 
-button:hover {
-  background-color: aqua;
-  color: aqua;
-  border: solid;
-}
-
 .game-board {
+  /* margin-top: 50px;
+  margin-bottom: 50px; */
   margin-top: 10vh;
   margin: 0 auto;
 }
@@ -88,4 +84,13 @@ button:nth-child(9){
 
 button:nth-child(10){
   background-color: #cc0099;
+}
+
+button:hover {
+  background-color: aqua;
+  color: aqua;
+}
+
+button:disabled {
+  background-color: aqua;
 }
