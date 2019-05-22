@@ -49,5 +49,5 @@ namespace GoldRush.Models
     //   }
     //   return newGame;
     // }
-//   }
-// }
+  }
+}
