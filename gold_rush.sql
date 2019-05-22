@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 20, 2019 at 11:17 PM
+-- Generation Time: May 21, 2019 at 11:16 PM
 -- Server version: 5.6.38
 -- PHP Version: 7.2.1
 
@@ -25,20 +25,6 @@ USE `gold_rush`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `boards`
---
-
-CREATE TABLE `boards` (
-  `id` int(11) NOT NULL,
-  `x_axis` int(11) DEFAULT NULL,
-  `y_axis` int(11) DEFAULT NULL,
-  `gold` tinyint(1) NOT NULL,
-  `tnt` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `players`
 --
 
@@ -46,18 +32,6 @@ CREATE TABLE `players` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `player_gold` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `players_golds`
---
-
-CREATE TABLE `players_golds` (
-  `id` int(11) NOT NULL,
-  `player_id` int(11) DEFAULT NULL,
-  `gold_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -79,21 +53,9 @@ CREATE TABLE `prospectors` (
 --
 
 --
--- Indexes for table `boards`
---
-ALTER TABLE `boards`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `players`
 --
 ALTER TABLE `players`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `players_golds`
---
-ALTER TABLE `players_golds`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -107,21 +69,9 @@ ALTER TABLE `prospectors`
 --
 
 --
--- AUTO_INCREMENT for table `boards`
---
-ALTER TABLE `boards`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `players`
 --
 ALTER TABLE `players`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `players_golds`
---
-ALTER TABLE `players_golds`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --

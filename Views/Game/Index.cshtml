@@ -11,14 +11,15 @@
 </head>
 <body>
   <table class="game-board">
+    <h1>@Model.Count</h1>
     @for (var i = 0; i < 10; i++)
     {
       <tr></tr>
-      <td>@for (var j = 0; j < 100; j++)
+      <td>@for (var j = 0; j < @Model.Count; j++)
       {
         @if (j % 10 == 0 || j == 0)
         {
-        <button>#</button>
+        <button value="@Model[i+j].Id" >@Model[i+j].Id</button>
         }
       }</td>
     }

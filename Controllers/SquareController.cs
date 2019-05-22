@@ -5,10 +5,10 @@ using GoldRush.Models;
 
 namespace GoldRush.Controllers
 {
-  public class GameController : Controller
+  public class SquareController : Controller
   {
 
-    [HttpGet("/game")]
+    [HttpGet("/square")]
     public ActionResult Index()
     {
       List<Square> newSquareList = Square.TypeOfSquare();

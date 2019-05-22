@@ -5,18 +5,17 @@ using GoldRush.Models;
 
 namespace GoldRush.Controllers
 {
-  public class GameController : Controller
+  public class BoardController : Controller
   {
 
-    [HttpGet("/game")]
-    public ActionResult Index()
-    {
-      Game newGame = new Game();
-      List<Board> newBoard = Board.GetAll();
-      List<Player> newPlayer = Player.GetAll();
-      List<Prospector> theProspector = Prospector.GetAll();
-      return View(newGame);
-    }
+    // [HttpGet("/")]
+    // public ActionResult Index()
+    // {
+    //   Board newGame = new Board(0,0,false,false,0);
+    //   newGame.BuildBoard();
+    //   List<Board> newBoard = Board.GetAll();
+    //   return View(newBoard);
+    // }
 
   }
 }
