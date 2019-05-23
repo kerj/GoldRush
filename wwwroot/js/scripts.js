@@ -1,6 +1,7 @@
 function disable(i){
   $("button#"+i).on('click', function() {
     $(this).prop("disabled",true);
+
     var buttonValue = $(this).val();
     //sides of clicked button
   });
