@@ -15,15 +15,15 @@ $(document).ready(function() {
     //stores the button squaretype
     console.log(buttonValue);
     if(turnCounter >= 5){
-      alert("The game is over");
+      
     }else {
       if(buttonValue == 10) {
-        alert("YOU STRUCK GOLD!!!")
+
         turnCounter--;
         goldCounter++;
         totalGold--;
       }else if(buttonValue == -1){
-        alert("YOU BLEW UP!!!")
+
       }
     }
       $("#goldies").html("<h1> Number of Gold: " + totalGold + "</h1>");

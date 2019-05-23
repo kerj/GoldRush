@@ -26,25 +26,25 @@ namespace GoldRush.Controllers
     [HttpGet("/game/lostgamemoves")]
     public ActionResult lostgamemoves()
     {
-    return View();
+      return View();
     }
 
     [HttpGet("/game/wongame")]
     public ActionResult wongame()
     {
-    return View();
+      return View();
     }
 
     [HttpGet("/game/new")]
     public ActionResult New()
     {
-    return RedirectToAction("Index", "Home");
+      return RedirectToAction("Index", "Home");
     }
 
     [HttpGet("/lose")]
     public ActionResult LostGameTnt()
     {
-    return View();
+      return View();
     }
 
   }
