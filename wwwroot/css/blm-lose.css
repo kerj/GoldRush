@@ -1,0 +1,47 @@
+* {
+  color: #005824;
+}
+
+body {
+  background: url("../img/blm.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#you-lose {
+  margin: 0 auto;
+  margin-top: 10vh;
+  padding: 10px;
+  background-color: rgb(217,199,201, 0.8)
+}
+
+h1 {
+  font-size: 100px;
+  text-align: center;
+}
+
+#blm-lose {
+  margin: 0 auto;
+  margin-top: 50vh;
+  padding: 10px;
+  background-color: rgb(130,201,155, 0.8)
+}
+
+button {
+  font: serif;
+  margin: 10px;
+  width: 200px;
+  height: 100px;
+  font-size: 30px;
+  background-color: #00ABE5;
+  border: solid #005824;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+
+button:hover {
+  background-color: #005824;
+  border: solid #00ABE5;
+  color: #00ABE5;
+}

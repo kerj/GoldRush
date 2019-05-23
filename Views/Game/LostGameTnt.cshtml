@@ -7,16 +7,16 @@
   <link rel="stylesheet" href="~/css/styles.css">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="~/css/styles.css">
-  <link rel="stylesheet" href="~/css/winlose.css">
+  <link rel="stylesheet" href="~/css/tntlose.css">
   <title>TNT</title>
 </head>
 <body>
-  <div class="container">
-    <h1>TNT</h1>
+  <div class="container" id="you-lose">
+    <h1>You Lose</h1>
     <h3>Oh No! You lit a cigarette near some TNT left behind by another miner and accidentally blew yourself up!</h3>
 
     <form action="/game/new" method="get">
-      <button type="submit" name="button" class="btn btn-dark">New Game</button>
+      <button type="submit" name="button">New Game</button>
     </form>
   </div>
 </body>
