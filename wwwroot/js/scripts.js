@@ -66,7 +66,7 @@ $(document).ready(function() {
     findSurrondedSquaretypes(this.id);
     var buttonValue = $(this).val();
     //stores the button squaretype
-    if(turnCounter >= 5){
+    if(turnCounter > 5){
 
     }else {
       if(buttonValue == 10) {
