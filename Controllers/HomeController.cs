@@ -10,7 +10,10 @@ namespace GoldRush.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
-      return View();
+      Dictionary<string, object> playerData = new Dictionary<string, object> {};
+      List<Player> viewPlayers = Player.GetAll();
+      playerData.Add("PlayerList", viewPlayers);
+      return View(playerData);
     }
   }
 }

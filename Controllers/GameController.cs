@@ -11,8 +11,22 @@ namespace GoldRush.Controllers
     [HttpPost("/game/player")]
     public ActionResult Rules(string name)
     {
+      Dictionary<string, object> playerData = new Dictionary<string, object> {};
       Player player = new Player(name);
-      return View(player);
+      player.Save();
+      playerData.Add("NewPlayer", player);
+      List<Player> viewPlayers = Player.GetAll();
+      playerData.Add("PlayerList", viewPlayers);
+      return View(playerData);
+    }
+
+    [HttpGet("/game/highscores")]
+    public ActionResult highscores()
+    {
+      Dictionary<string, object> playerData = new Dictionary<string, object> {};
+      List<Player> viewPlayers = Player.GetAll();
+      playerData.Add("PlayerList", viewPlayers);
+      return View(playerData);
     }
 
     [HttpGet("/game/start")]
@@ -26,25 +40,26 @@ namespace GoldRush.Controllers
     [HttpGet("/game/lostgamemoves")]
     public ActionResult lostgamemoves()
     {
-    return View();
+      return View();
     }
 
     [HttpGet("/game/wongame")]
     public ActionResult wongame()
     {
-    return View();
+      return View();
     }
 
     [HttpGet("/game/new")]
     public ActionResult New()
     {
-    return RedirectToAction("Index", "Home");
+      return RedirectToAction("Index", "Home");
     }
+
 
     [HttpGet("/lose")]
     public ActionResult LostGameTnt()
     {
-    return View();
+      return View();
     }
 
   }

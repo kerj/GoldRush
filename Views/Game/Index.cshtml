@@ -27,15 +27,17 @@
         {
           @if(@Model[i+j].SquareType == -1)
           {
-            <button id="@Model[i+j].Id" onclick="disable(@Model[i+j].Id)" value="@Model[i+j].SquareType"><a href="/lose">&nbsp</a></button>
+            <button class="clicked" id="@Model[i+j].Id" onclick="disable(@Model[i+j].Id)" value="@Model[i+j].SquareType">&nbsp</button>
           }
           @if(@Model[i+j].SquareType != -1)
           {
-            <button id="@Model[i+j].Id" onclick="disable(@Model[i+j].Id)" value="@Model[i+j].SquareType">&nbsp</button>
+            <button class="clicked" id="@Model[i+j].Id" onclick="disable(@Model[i+j].Id)" value="@Model[i+j].SquareType">&nbsp</button>
           }
         }
       }</td>
     }
+    <img class="hiddenGold" src="../img/goldfind.jpg">
+    <img class="hiddenTnt" src="../img/theTnt.png">
   </table>
   <h1 id="turnCounter">Turn: 0</h1>
   <h1 id="goldCounter">Players Gold: 0</h1>
