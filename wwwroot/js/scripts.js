@@ -87,7 +87,7 @@ $(document).ready(function() {
       }
     }
       $(".hiddenTnt").fadeOut(500);
-    $("#goldies").html("<h1> Number of Gold: " + totalGold + "</h1>");
+    $("#goldies").html("<h1>Gold Remaining: " + totalGold + "</h1>");
 
     $("#turnCounter").html("<h1> Turn: " + turnCounter + "</h1>");
 

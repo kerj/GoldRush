@@ -12,7 +12,10 @@
   <div class="container">
     <h1>High Score List</h1>
     <ul>
-      
+      @foreach(var playerscore in Model["PlayerList"])
+      {
+        <li>@playerscore.Name -------- @playerscore.PlayerGold</li>
+      }
     </ul>
   </div>
 </body>

@@ -21,9 +21,12 @@ namespace GoldRush.Controllers
     }
 
     [HttpGet("/game/highscores")]
-    public ActionResult highscores()
+    public ActionResult highscores(int playerId, int playerGold)
     {
       Dictionary<string, object> playerData = new Dictionary<string, object> {};
+      Player player = Player.Find(playerId);
+      player.Edit(playerGold);
+      playerData.Add("player", player);
       List<Player> viewPlayers = Player.GetAll();
       playerData.Add("PlayerList", viewPlayers);
       return View(playerData);
@@ -40,12 +43,14 @@ namespace GoldRush.Controllers
     [HttpGet("/game/lostgamemoves")]
     public ActionResult lostgamemoves()
     {
+
       return View();
     }
 
     [HttpGet("/game/wongame")]
     public ActionResult wongame()
     {
+
       return View();
     }
 
@@ -59,6 +64,7 @@ namespace GoldRush.Controllers
     [HttpGet("/lose")]
     public ActionResult LostGameTnt()
     {
+
       return View();
     }
 

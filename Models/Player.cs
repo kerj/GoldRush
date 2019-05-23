@@ -50,7 +50,7 @@ namespace GoldRush.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT * FROM players;";
+      cmd.CommandText = @"SELECT * FROM players ORDER BY player_gold DESC;";
       MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
 
       while(rdr.Read())
@@ -70,5 +70,47 @@ namespace GoldRush.Models
       }
       return allPlayers;
     }
+
+    public static Player Find(int id)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = new MySqlCommand(@"SELECT * FROM players WHERE id = (@searchId);", conn);
+      cmd.Parameters.AddWithValue("@searchId", id);
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      int PlayerId = 0;
+      string PlayerName = "";
+      int PlayerGolds = 0;
+      while(rdr.Read())
+      {
+        PlayerId = rdr.GetInt32(0);
+        PlayerName = rdr.GetString(1);
+        PlayerGolds = rdr.GetInt32(2);
+      }
+      Player newPlayer = new Player(PlayerName, PlayerGolds, PlayerId);
+      conn.Close();
+      if(conn != null)
+      {
+        conn.Dispose();
+      }
+      return newPlayer;
+    }
+
+    public void Edit(int newGold)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = new MySqlCommand(@"UPDATE players SET player_gold = @newGold WHERE id = @searchId;", conn);
+      cmd.Parameters.AddWithValue("@searchId", Id);
+      cmd.Parameters.AddWithValue("@newGold", newGold);
+      cmd.ExecuteNonQuery();
+      PlayerGold = newGold;
+      conn.Close();
+      if(conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+
   }
 }
