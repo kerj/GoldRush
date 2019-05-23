@@ -2,7 +2,7 @@
 
 #### _This program will create a grid shaped game made out of buttons.  You will have a certain number of turns to find a random amount of gold.  Watch out for the hidden tnt or you will lose. 5/22/2019_
 
-#### By _**Mathew Akre, Colton, Justin, Liz**_
+#### By _**Mathew Akre, Colton Lacey, Justin Kerntz, Liz Kelley**_
 
 ## Description
 
