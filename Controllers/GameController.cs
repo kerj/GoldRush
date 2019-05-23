@@ -41,6 +41,7 @@ namespace GoldRush.Controllers
       return RedirectToAction("Index", "Home");
     }
 
+
     [HttpGet("/lose")]
     public ActionResult LostGameTnt()
     {

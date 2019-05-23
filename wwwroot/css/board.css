@@ -3,9 +3,10 @@
 }
 
 body {
-  background: url("../img/gold-glitter.jpg");
+  background: url("../img/game.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 
 a {
@@ -13,7 +14,9 @@ a {
   position: relative;
   margin-right: 80%;
   margin-left: -55%;
-  margin-bottom: 10%;
+  margin-bottom: 25%;
+  padding-top: 20%;
+  padding-right: 5%;
 }
 
 a:hover {
@@ -21,12 +24,12 @@ a:hover {
 }
 
 a:after{
-    content:"";
-    padding: 50%;
-    position: absolute;
-    left: -10%;
-    top: -25%;
-    margin-right: 50%;
+  content:"";
+  padding: 50%;
+  position: absolute;
+  left: -10%;
+  top: -25%;
+  margin-right: 50%;
 }
 
 h1 {
@@ -51,65 +54,76 @@ button {
   width: 45px;
   height: 45px;
   font-size: 20px;
-} */
+  } */
 
-button:hover {
-  background-color: aqua;
-  color: aqua;
-  border: solid;
-}
+  button:hover {
+    background-color: aqua;
+    color: aqua;
+    border: solid;
+  }
 
-.game-board {
-  margin-top: 10vh;
-  margin: 0 auto;
-}
+  .hiddenGold, .hiddenTnt{
+    display: none;
+  }
 
-button:first-of-type {
-  background-color: #ff0000;
-}
+  .game-board {
+    margin-top: 10vh;
+    margin: 0 auto;
+  }
 
-button:nth-child(2){
-  background-color: #ff6600;
-}
+  button:first-of-type {
+    background-color: #ff0000;
+  }
 
-button:nth-child(3){
-  background-color: #ff9966;
-}
+  button:nth-child(2){
+    background-color: #ff6600;
+  }
 
-button:nth-child(4){
-  background-color: #ffff00;
-}
+  button:nth-child(3){
+    background-color: #ff9966;
+  }
 
-button:nth-child(5){
-  background-color: #66ff33;
-}
+  button:nth-child(4){
+    background-color: #ffff00;
+  }
 
-button:nth-child(6){
-  background-color: #00cc00;
-}
+  button:nth-child(5){
+    background-color: #66ff33;
+  }
 
-button:nth-child(7){
-  background-color: #0066ff;
-}
+  button:nth-child(6){
+    background-color: #00cc00;
+  }
 
-button:nth-child(8){
-  background-color: #3333cc;
-}
+  button:nth-child(7){
+    background-color: #0066ff;
+  }
 
-button:nth-child(9){
-  background-color: #6600cc;
-}
+  button:nth-child(8){
+    background-color: #3333cc;
+  }
 
-button:nth-child(10){
-  background-color: #cc0099;
-}
+  button:nth-child(9){
+    background-color: #6600cc;
+  }
 
-button:hover {
-  background-color: slategrey;
-  color: aqua;
-}
+  button:nth-child(10){
+    background-color: #cc0099;
+  }
 
-button:disabled {
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUjqe1dp2PzzM5IC4-W_G2LlkIbNcJQO0JgQVAxwaO1jd1V07Z);
+  button:hover {
+    background-color: slategrey;
+    color: aqua;
+  }
 
-}
+  button:disabled {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUjqe1dp2PzzM5IC4-W_G2LlkIbNcJQO0JgQVAxwaO1jd1V07Z);
+    opacity: .20;
+  }
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }

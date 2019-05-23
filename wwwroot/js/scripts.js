@@ -49,7 +49,6 @@ function findSurrondedSquaretypes(id){
     for(var i = 0; i <= listOfSquares.length-1; i++) {
       //listOfSquares is an array of objects with a single index array inside each object
       if(listOfSquares[i][0].value != '10' && listOfSquares[i][0].value != '-1') {
-        console.log(listOfSquares[i][0].id);
         disableSurrond(listOfSquares[i][0].id);
       }
     }
@@ -61,11 +60,9 @@ $(document).ready(function() {
   var totalGold = $("#goldie").val();
   var initialGold = $("#goldie").val();
   $("button.clicked").on('click', function(){
-    console.log($("#"+this.id).val());
     findSurrondedSquaretypes(this.id);
     var buttonValue = $(this).val();
     //stores the button squaretype
-
     if(turnCounter >= 5){
 
     }else {
@@ -73,11 +70,20 @@ $(document).ready(function() {
         turnCounter--;
         goldCounter++;
         totalGold--;
-        
+        $(".hiddenGold").fadeIn(1000);
+
+
       }else if(buttonValue == -1){
+        $(".hiddenTnt").fadeIn('1000', function(){
+          $(".hiddenTnt").fadeOut('1000', function(){
+            window.location.replace("/lose");
+
+          })
+        })
 
       }
     }
+      $(".hiddenTnt").fadeOut(500);
     $("#goldies").html("<h1> Number of Gold: " + totalGold + "</h1>");
 
     $("#turnCounter").html("<h1> Turn: " + turnCounter + "</h1>");
@@ -94,6 +100,7 @@ $(document).ready(function() {
 
     turnCounter++
     disable(0);
+    $(".hiddenGold").fadeOut(500);
     //disables the button
   })
 })
