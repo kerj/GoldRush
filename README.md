@@ -12,8 +12,8 @@ _This program will first ask for a name from the user. You will be redirected to
 ```sql
 CREATE DATABASE gold_rush;
 USE gold_rush;
-CREATE TABLE players (id serial PRIMARY KEY, name VARCHAR(255));
-CREATE TABLE prospectors (id serial PRIMARY KEY, phrases VARCHAR(255), win tinyint(1), lose tinyint(1), intro tinyint(1);
+CREATE TABLE players (id serial PRIMARY KEY, name VARCHAR(255) DEFAULT NULL, player_gold int(11) DEFAULT NULL;
+CREATE TABLE prospectors (id serial PRIMARY KEY, phrases VARCHAR(255) NOT NULL, win tinyint(1) NOT NULL, lose tinyint(1) NOT NULL, intro tinyint(1) NOT NULL;
 ```
 
 ## Specs
