@@ -44,7 +44,7 @@ function findSurrondedSquaretypes(id){
     listOfSquares.splice(4,3);
   }else if(id < 10 && id != 9 && id != 0){
     listOfSquares.splice(1,3);
-    listOfSquares.splice(4,1)
+    
   }else if(id % 10 - 9 == 0 && id != 9 && id != 99){
     listOfSquares.splice(3,2);
     listOfSquares.splice(5,1);
