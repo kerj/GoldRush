@@ -70,7 +70,7 @@ $(document).ready(function() {
 
     }else {
       if(buttonValue == 10) {
-        turnCounter--;
+        turnCounter-= 2;
         goldCounter++;
         totalGold--;
         $(".hiddenGold").fadeIn(1000);

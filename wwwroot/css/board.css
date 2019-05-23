@@ -71,7 +71,7 @@ button {
     margin: 0 auto;
   }
 
-  button:first-of-type {
+  /* button:first-of-type {
     background-color: #ff0000;
   }
 
@@ -109,17 +109,26 @@ button {
 
   button:nth-child(10){
     background-color: #cc0099;
-  }
+  } */
 
   button:hover {
     background-color: slategrey;
     color: aqua;
   }
 
+  button[value = "10"]:disabled  {
+    background-image: url("../img/goldnugget.png");
+    height: 75px;
+    width: 75px;
+    opacity: .6;
+    background-size: contain;
+  }
+
   button:disabled {
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUjqe1dp2PzzM5IC4-W_G2LlkIbNcJQO0JgQVAxwaO1jd1V07Z);
     opacity: .20;
   }
+
 
   img {
     display: block;
