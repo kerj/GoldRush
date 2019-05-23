@@ -9,10 +9,15 @@ body {
 }
 
 a {
+  text-decoration: none;
   position: relative;
   margin-right: 80%;
   margin-left: -55%;
   margin-bottom: 10%;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 a:after{
@@ -32,12 +37,21 @@ h1 {
 }
 
 button {
+  background-image: url(data:image/png;base64,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);
+  background-position: 50% 50%;
+  /* put the height and width of your image here */
+  height: 75px;
+  width: 75px;
+  border: none;
+}
+
+/* button {
   color: #ccffff;
   border: groove aqua;
   width: 45px;
   height: 45px;
   font-size: 20px;
-}
+} */
 
 button:hover {
   background-color: aqua;
@@ -88,4 +102,14 @@ button:nth-child(9){
 
 button:nth-child(10){
   background-color: #cc0099;
+}
+
+button:hover {
+  background-color: slategrey;
+  color: aqua;
+}
+
+button:disabled {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUjqe1dp2PzzM5IC4-W_G2LlkIbNcJQO0JgQVAxwaO1jd1V07Z);
+
 }
