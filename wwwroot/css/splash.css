@@ -48,3 +48,20 @@ button:hover {
   border: solid #DDB446;
   color: #DDB446;
 }
+
+a{
+  font: serif;
+  margin: 10px;
+  width: 200px;
+  height: 100px;
+  font-size: 30px;
+  background-color: #DDB446;
+  border: solid #844503;
+  color: #844503;
+}
+
+a:hover {
+  background-color: #844503;
+  border: solid #DDB446;
+  color: #DDB446;
+}

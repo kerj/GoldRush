@@ -44,6 +44,9 @@ function findSurrondedSquaretypes(id){
   }else if(id < 10 && id != 9 && id != 0){
     listOfSquares.splice(1,3);
     listOfSquares.splice(4,1)
+  }else if(id % 10 - 9 == 0 && id != 9 && id != 99){
+    listOfSquares.splice(3,2);
+    listOfSquares.splice(5,1);
   }
 
     for(var i = 0; i <= listOfSquares.length-1; i++) {
@@ -75,7 +78,7 @@ $(document).ready(function() {
 
       }else if(buttonValue == -1){
         $(".hiddenTnt").fadeIn('1000', function(){
-          $(".hiddenTnt").fadeOut('1000', function(){
+          $(".hiddenTnt").fadeOut('2000', function(){
             window.location.replace("/lose");
 
           })
